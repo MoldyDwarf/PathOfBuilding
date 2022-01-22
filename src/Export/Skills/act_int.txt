@@ -96,6 +96,8 @@ local skills, mod, flag, skill = ...
 		},
 	},
 #baseMod skill("radius", 18)
+#baseMod skill("projectileTriggersBolts", true)
+#baseMod skill("boltCooldown", 0.15)
 #mods
 
 #skill DarkRitual

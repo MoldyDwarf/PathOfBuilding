@@ -783,6 +783,52 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillFlags.area or skillData.radius or (skillFlags.mine and activeSkill.skillTypes[SkillType.Aura]) then
 		calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
+		if skillData.projectileTriggersBolts then
+			-- estimate the number of bolts that hit a single target per ball lightning ball
+
+			-- TODO: is this the right way, or do I need to activate mode_effective but then disable point blank and other damage/dist scaling?
+			local castDist = env.configInput.projectileDistance or 0
+			local boltProcRadius = output.AreaOfEffectRadius
+			local enemyRadius = 0 -- for now, we will be conservative and assume no enemy radius
+			local incSpeed, moreSpeed = calcLib.mods(skillModList, skillCfg, "ProjectileSpeed")
+			function dump(o, depth, maxdepth, prefix)
+				if depth == nil then
+					depth = 0
+				end
+				if maxdepth == nil then
+					maxdepth = 4
+				end
+				if prefix == nil then
+					prefix = ''
+				end
+				if depth >= maxdepth then
+					return "<elided>"
+				end
+				if type(o) == 'table' then
+					local s = prefix .. '{\n'
+					for k,v in pairs(o) do
+						if type(k) ~= 'number' then k = '"'..dump(k, depth + 1, maxdepth, prefix .. "  ")..'"' end
+						s = s .. prefix .. " " .. '['..dump(k, depth + 1, maxdepth, prefix .. "  ")..'] = ' .. dump(v, depth + 1, maxdepth, prefix .. "  ") .. ',\n'
+					end
+					return s .. prefix .. '}\n'
+				else
+					return tostring(o)
+				end
+			end
+			--function findSpeed(o, depth)
+			--	if depth == nil then
+			--		depth = 5
+			--	end
+			--	if depth < 0 then
+			--		return "<elided>"
+			--	end
+			--printObj(activeSkill, 2)  
+			--ConPrintf("OBJECT = %s", dump(activeSkill))
+			ConPrintf("OBJECT = %s", dump(activeSkill.skillModList))
+			ConPrintf("castDist = %f", castDist)
+			ConPrintf("boltProcRadius = %f", output.AreaOfEffectRadius)
+			ConPrintf("projSpeed = base * (1 + %f) * %f = base * %f", incSpeed, moreSpeed, incSpeed * moreSpeed)
+		end
 	end
 	if activeSkill.skillTypes[SkillType.Aura] then
 		output.AuraEffectMod = calcLib.mod(skillModList, skillCfg, "AuraEffect")

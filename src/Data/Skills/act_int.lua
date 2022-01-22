@@ -565,6 +565,8 @@ skills["BallLightning"] = {
 	},
 	baseMods = {
 		skill("radius", 18),
+		skill("projectileTriggersBolts", true),
+		skill("boltCooldown", 0.15),
 	},
 	qualityStats = {
 		Default = {
