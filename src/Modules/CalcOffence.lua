@@ -341,8 +341,8 @@ function calcs.offence(env, actor, activeSkill)
 					output.AreaOfEffectRadiusSecondary = skillData.radiusSecondary
 					if breakdown then
 						breakdown.AreaOfEffectRadiusSecondary = {
-							"Molten Strike's deadzone radius cannot be modified in any way.",
-							s_format("It is always: ^8%d", skillData.radiusSecondary)
+							skillData.radiusSecondaryLabel,
+							"^8Molten Strike's deadzone radius cannot be modified in any way."
 						}
 					end
 				else

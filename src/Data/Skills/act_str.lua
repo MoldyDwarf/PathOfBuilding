@@ -4830,9 +4830,9 @@ skills["MoltenStrike"] = {
 		skill("radius", 9, { type = "SkillPart", skillPart = 2 }),
 		skill("radiusLabel", "Ball area:", { type = "SkillPart", skillPart = 2 }),
 		skill("radiusSecondary", 2, { type = "SkillPart", skillPart = 2 }),
-		skill("radiusSecondaryLabel", "Chain Minimum Distance:", { type = "SkillPart", skillPart = 2 }),
+		skill("radiusSecondaryLabel", "Landing Area Minimum Distance:", { type = "SkillPart", skillPart = 2 }),
 		skill("radiusTertiary", 25, { type = "SkillPart", skillPart = 2 }),
-		skill("radiusTertiaryLabel", "Chain Maximum Distance:", { type = "SkillPart", skillPart = 2 }),
+		skill("radiusTertiaryLabel", "Landing Area Maximum Distance:", { type = "SkillPart", skillPart = 2 }),
 	},
 	qualityStats = {
 		Default = {

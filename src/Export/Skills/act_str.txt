@@ -855,9 +855,9 @@ local skills, mod, flag, skill = ...
 #baseMod skill("radius", 9, { type = "SkillPart", skillPart = 2 })
 #baseMod skill("radiusLabel", "Ball area:", { type = "SkillPart", skillPart = 2 })
 #baseMod skill("radiusSecondary", 2, { type = "SkillPart", skillPart = 2 })
-#baseMod skill("radiusSecondaryLabel", "Chain Minimum Distance:", { type = "SkillPart", skillPart = 2 })
+#baseMod skill("radiusSecondaryLabel", "Landing Area Minimum Distance:", { type = "SkillPart", skillPart = 2 })
 #baseMod skill("radiusTertiary", 25, { type = "SkillPart", skillPart = 2 })
-#baseMod skill("radiusTertiaryLabel", "Chain Maximum Distance:", { type = "SkillPart", skillPart = 2 })
+#baseMod skill("radiusTertiaryLabel", "Landing Area Maximum Distance:", { type = "SkillPart", skillPart = 2 })
 #mods
 
 #skill BloodSpears
